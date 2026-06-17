@@ -48,7 +48,7 @@ npm run db:push          # or: npm run db:generate && npm run db:migrate
 npm run db:seed
 
 # 5. Run
-npm run dev              # http://localhost:3000
+npm run dev              # http://localhost:3005
 ```
 
 ### Pointing at an existing Dream Books database
