@@ -17,14 +17,16 @@ import {
 } from "recharts";
 import type { DailyPoint, MoodSlice } from "@/db/analytics";
 
-const AXIS = "#94a0bd";
-const GRID = "#28324f";
+// Pull colors from the active theme's CSS variables so charts follow the
+// dark/light toggle without re-rendering on theme change.
+const AXIS = "var(--muted)";
+const GRID = "var(--border)";
 
 const tooltipStyle = {
-  background: "#1b2340",
-  border: "1px solid #28324f",
+  background: "var(--tooltip-bg)",
+  border: "1px solid var(--border)",
   borderRadius: 8,
-  color: "#e8ecf6",
+  color: "var(--text)",
 };
 
 function shortDate(d: string) {

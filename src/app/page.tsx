@@ -1,6 +1,7 @@
 import { getDashboardData } from "@/db/analytics";
 import { StatCard } from "@/components/StatCard";
 import { EntriesTrend, SignupsTrend, MoodPie } from "@/components/Charts";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 // Always read fresh numbers; analytics shouldn't be statically cached.
 export const dynamic = "force-dynamic";
@@ -15,7 +16,10 @@ export default async function DashboardPage() {
           <h1>Dream Books · Analytics</h1>
           <div className="sub">Data volume &amp; user activity · last 30 days</div>
         </div>
-        <div className="sub">Updated {new Date().toLocaleString()}</div>
+        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <span className="sub">Updated {new Date().toLocaleString()}</span>
+          <ThemeToggle />
+        </div>
       </header>
 
       {/* Data volume KPIs */}

@@ -1,4 +1,6 @@
-:root {
+/* Dark is the default theme. */
+:root,
+:root[data-theme="dark"] {
   --bg: #0b1020;
   --panel: #141a2e;
   --panel-2: #1b2340;
@@ -8,6 +10,20 @@
   --accent: #7c8cff;
   --accent-2: #36d6c3;
   --good: #4ade80;
+  --tooltip-bg: #1b2340;
+}
+
+:root[data-theme="light"] {
+  --bg: #f4f6fb;
+  --panel: #ffffff;
+  --panel-2: #eef1f8;
+  --border: #dde3ef;
+  --text: #1a2238;
+  --muted: #5c6885;
+  --accent: #5566f0;
+  --accent-2: #14b8a6;
+  --good: #16a34a;
+  --tooltip-bg: #ffffff;
 }
 
 * {
@@ -20,7 +36,33 @@ body {
   padding: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+.card,
+.empty {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
 }
 
 .page {
@@ -41,6 +83,8 @@ body {
 .header h1 {
   margin: 0;
   font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .header .sub {
@@ -88,8 +132,9 @@ body {
 
 .stat .value {
   font-size: 30px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
+  letter-spacing: -0.01em;
 }
 
 .stat .delta {
@@ -101,7 +146,7 @@ body {
 .panel-title {
   margin: 0 0 14px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .panel-title .hint {
